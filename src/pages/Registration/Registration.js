@@ -1,8 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 const Registration = () => {
+    const { user } = useAuth();
     const preloadValues = {
+        name: user?.displayName,
+        email: user?.email,
         serviceName: 'user'
     }
     const { register, handleSubmit, reset } = useForm({
@@ -26,7 +30,7 @@ const Registration = () => {
 
                 <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" />
 
-                <input type="submit" />
+                <input className='bg-primary text-white' type="submit" value="Registration" />
             </form>
 
         </div>

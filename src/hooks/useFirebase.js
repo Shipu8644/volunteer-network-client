@@ -1,47 +1,48 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import initializeAuthentication from "../pages/Login/firebase/firebase.init";
 initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
 
     const googleSignIn = () => {
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider)
-        // .then(result => {
-        //     console.log(result.user);
-        //     setUser(result.user);
-        // })
-        // .catch(error => {
-        //     console.log(error.message);
-        // })
+
+            .finally(() => setIsLoading(false));
     }
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setUser(user)
-        } else {
-
-        }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user)
+            } else {
+                setUser({})
+            }
+            setIsLoading(false);
+        });
         return () => unsubscribe;
-    });
+    }, [])
+
 
     const logout = () => {
         signOut(auth).then(() => {
             setUser({});
-        }).catch((error) => {
-            // An error happened.
-        });
+        })
+            .then(() => { })
+            .finally(() => setIsLoading(false));
     }
 
     return {
         user,
         googleSignIn,
-        logout
+        logout,
+        isLoading
     }
 }
 

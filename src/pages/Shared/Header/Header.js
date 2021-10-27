@@ -16,14 +16,14 @@ const Header = () => {
                         <Nav >
                             <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                             <Nav.Link className="ms-4" as={Link} to=''>Donation</Nav.Link>
-                            <Nav.Link className="ms-4" as={Link} to=''>Event</Nav.Link>
+                            <Nav.Link className="ms-4" as={Link} to=''>My Events</Nav.Link>
 
                             {!user?.email ? <Nav.Link className="ms-4" as={Link}
                                 to='/login'   >Login
                             </Nav.Link> :
                                 <Nav.Link onClick={logout} className="ms-4"
                                     to='login' as={Link}
-                                >LogOut
+                                >LogOut <span className="text-danger">Sign in as:{user?.displayName}</span>
                                 </Nav.Link>
                             }
                             <Nav.Link className="ms-4 bg-primary text-white rounded" as={Link} to='/register'   >Register</Nav.Link>
