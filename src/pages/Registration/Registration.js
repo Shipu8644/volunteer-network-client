@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 const Registration = () => {
+    const { id } = useParams();
+    console.log(id);
     const { user } = useAuth();
+
+    const [service, setService] = useState({});
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/services/${id}`)
+            .then(res => res.json())
+            .then(data => setService(data))
+    }, [id])
+
+    console.log(service.name, service.img)
+
+
     const preloadValues = {
         name: user?.displayName,
         email: user?.email,
-        serviceName: 'user'
     }
+
     const { register, handleSubmit, reset } = useForm({
         defaultValues: preloadValues
     });
@@ -17,7 +32,7 @@ const Registration = () => {
     }
     return (
         <div className='pt-5 mt-5 add-service'>
-            <h2>Register as a Volunteer</h2>
+            <h2>Register as a Volunteer </h2>
             <br />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name", { required: true, maxLength: 30 })} placeholder="Name" />
@@ -28,7 +43,7 @@ const Registration = () => {
 
                 <textarea {...register("description")} placeholder="Description" />
 
-                <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" />
+                <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" value={service.name} />
 
                 <input className='bg-primary text-white' type="submit" value="Registration" />
             </form>
