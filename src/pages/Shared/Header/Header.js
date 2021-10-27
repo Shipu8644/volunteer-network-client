@@ -16,7 +16,7 @@ const Header = () => {
                         <Nav >
                             <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                             <Nav.Link className="ms-4" as={Link} to=''>Donation</Nav.Link>
-                            <Nav.Link className="ms-4" as={Link} to=''>My Events</Nav.Link>
+                            <Nav.Link className="ms-4" as={Link} to='/events'>My Events</Nav.Link>
 
                             {!user?.email ? <Nav.Link className="ms-4" as={Link}
                                 to='/login'   >Login

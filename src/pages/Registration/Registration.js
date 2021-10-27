@@ -29,6 +29,20 @@ const Registration = () => {
     });
     const onSubmit = data => {
         console.log(data);
+        fetch('http://localhost:5000/events', {
+            method: 'POST',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert("Registration successfull");
+                }
+            })
     }
     return (
         <div className='pt-5 mt-5 add-service'>
@@ -43,7 +57,7 @@ const Registration = () => {
 
                 <textarea {...register("description")} placeholder="Description" />
 
-                <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" value={service.name} />
+                <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" value={service.name || ''} />
 
                 <input className='bg-primary text-white' type="submit" value="Registration" />
             </form>
