@@ -42,7 +42,6 @@ function App() {
             <PrivateRoute path='/addevent'>
               <AddEvent></AddEvent>
             </PrivateRoute>
-
           </Switch>
         </BrowserRouter>
       </Authprovider>

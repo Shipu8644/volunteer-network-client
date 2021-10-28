@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import AdminList from './AdminList';
-
+import { useHistory } from 'react-router';
 const Admin = () => {
     const [events, setEvents] = useState([]);
+    const history = useHistory;
 
     useEffect(() => {
         fetch('http://localhost:5000/events')
@@ -26,6 +27,29 @@ const Admin = () => {
                     }
                 })
         }
+    }
+
+    const manageStatus = id => {
+        console.log(id);
+        fetch(`http://localhost:5000/events/${id}`, {
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify()
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert("Status approved");
+
+                }
+                else {
+                    alert('Already approved');
+                    const remainingEvents = events.find(event => event._id === id);
+                    setEvents(remainingEvents.status);
+                }
+            })
     }
 
     return (
@@ -50,6 +74,7 @@ const Admin = () => {
                             key={event._id}
                             event={event}
                             deleteEvent={deleteEvent}
+                            manageStatus={manageStatus}
                         ></AdminList>)}
                     </Col>
 
