@@ -9,6 +9,7 @@ import Registration from './pages/Registration/Registration';
 import Authprovider from './pages/context/Authprovider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Events from './pages/Events/Events';
+import Admin from './pages/Admin/Admin';
 function App() {
   return (
     <div className="App">
@@ -33,6 +34,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/events'>
               <Events></Events>
+            </PrivateRoute>
+            <PrivateRoute path='/admin'>
+              <Admin></Admin>
             </PrivateRoute>
 
           </Switch>

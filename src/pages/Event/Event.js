@@ -15,7 +15,8 @@ const Event = ({ event }) => {
     }, [])
 
     useEffect(() => {
-        setMatchService((services.find(service => service?.name === serviceName)))
+        setMatchService((services.find(service => service?.name ===
+            serviceName)))
 
     }, [services, serviceName])
 
@@ -24,7 +25,8 @@ const Event = ({ event }) => {
         <div>
             <div>
                 <Col className='pt-5'>
-                    <img style={{ width: '280px', height: '250px' }} src={matchService?.img} alt="" />
+                    <img style={{ width: '280px', height: '250px' }}
+                        src={matchService?.img} alt="" />
                     <h5>{serviceName}</h5>
                     <p>{date}</p>
                     {console.log({ date, name, email })}
