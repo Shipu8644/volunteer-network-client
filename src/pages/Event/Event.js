@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 const Event = ({ event }) => {
     const { user } = useAuth();
 
-    const { name, date, serviceName, email } = event;
+    const { name, date, serviceName, email, status } = event;
     const [services, setServices] = useState([]);
     const [matchService, setMatchService] = useState({});
     useEffect(() => {
@@ -29,13 +29,11 @@ const Event = ({ event }) => {
                         src={matchService?.img} alt="" />
                     <h5>{serviceName}</h5>
                     <p>{date}</p>
-                    {console.log({ date, name, email })}
+                    <p>Status: {status}</p>
                 </Col>
             </div>
 
         </div>
-
-
 
     );
 };

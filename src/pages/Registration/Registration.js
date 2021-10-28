@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 const Registration = () => {
     const { id } = useParams();
-    console.log(id);
+
     const { user } = useAuth();
 
     const [service, setService] = useState({});
@@ -28,6 +28,7 @@ const Registration = () => {
         defaultValues: preloadValues
     });
     const onSubmit = data => {
+        data.status = "pending";
         console.log(data);
         fetch('http://localhost:5000/events', {
             method: 'POST',

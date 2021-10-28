@@ -18,7 +18,7 @@ const Events = () => {
     useEffect(() => {
         setMatchEvents(events.filter(event => event.email === user?.email))
     }, [events])
-    console.log(matchevents);
+
 
 
     return (

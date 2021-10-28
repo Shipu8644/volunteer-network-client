@@ -12,6 +12,22 @@ const Admin = () => {
             .then(data => setEvents(data))
     }, [])
 
+    const deleteEvent = (id) => {
+        const proceed = window.confirm('Are you sure to delete?');
+        if (proceed) {
+            fetch(`http://localhost:5000/events/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remainingEvents = events.filter(event => event._id !== id);
+                        setEvents(remainingEvents);
+                    }
+                })
+        }
+    }
+
     return (
         <div className="mt-5 pt-5">
             <h3 className="text-primary mb-5">Volunteer Register list</h3>
@@ -22,16 +38,18 @@ const Admin = () => {
                         <NavLink to='/addEvent' style={{ cursor: 'pointer', textDecoration: 'none' }}> <p >Add event</p></NavLink>
                     </Col>
                     <Col xs={10} lg={10} className="bg-light pb-3 rounded ">
-                        <Row lg={5}>
+                        <Row lg={6}>
                             <Col className='p-2'> <strong > Name </strong></Col>
                             <Col className='p-2'> <strong> Email id </strong></Col>
                             <Col className='p-2'> <strong> Registration date </strong></Col>
                             <Col className='p-2'> <strong>Volunteer list </strong></Col>
                             <Col className='p-2'> <strong>Action </strong></Col>
+                            <Col className='p-2'> <strong>Status </strong></Col>
                         </Row>
                         {events.map(event => <AdminList
                             key={event._id}
                             event={event}
+                            deleteEvent={deleteEvent}
                         ></AdminList>)}
                     </Col>
 
