@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import AdminList from './AdminList';
 
 const Admin = () => {
@@ -17,8 +18,8 @@ const Admin = () => {
             <Container>
                 <Row>
                     <Col xs={2}>
-                        <p>Volunteer Register List</p>
-                        <p style={{ cursor: 'pointer' }}>Add event</p>
+                        <NavLink to='/admin'><p>Volunteer Register List</p></NavLink>
+                        <NavLink to='/addEvent' style={{ cursor: 'pointer', textDecoration: 'none' }}> <p >Add event</p></NavLink>
                     </Col>
                     <Col xs={10} lg={10} className="bg-light pb-3 rounded ">
                         <Row lg={5}>

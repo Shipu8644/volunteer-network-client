@@ -10,6 +10,7 @@ import Authprovider from './pages/context/Authprovider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Events from './pages/Events/Events';
 import Admin from './pages/Admin/Admin';
+import AddEvent from './pages/AddEvent/AddEvent';
 function App() {
   return (
     <div className="App">
@@ -37,6 +38,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/admin'>
               <Admin></Admin>
+            </PrivateRoute>
+            <PrivateRoute path='/addevent'>
+              <AddEvent></AddEvent>
             </PrivateRoute>
 
           </Switch>
