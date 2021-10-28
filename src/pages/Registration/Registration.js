@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 const Registration = () => {
@@ -9,7 +9,7 @@ const Registration = () => {
     const { user } = useAuth();
 
     const [service, setService] = useState({});
-
+    const history = useHistory();
     useEffect(() => {
         fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
@@ -41,6 +41,7 @@ const Registration = () => {
                 console.log(data);
                 if (data.insertedId) {
                     alert("Registration successfull");
+
                 }
             })
     }
@@ -49,7 +50,7 @@ const Registration = () => {
             <h2>Register as a Volunteer </h2>
             <br />
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 30 })} placeholder="Name" />
+                <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
                 <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
 
@@ -57,7 +58,7 @@ const Registration = () => {
 
                 <textarea {...register("description")} placeholder="Description" />
 
-                <input {...register("serviceName", { required: true, maxLength: 20 })} placeholder="Service name" value={service.name || ''} />
+                <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
 
                 <input className='bg-primary text-white' type="submit" value="Registration" />
             </form>
