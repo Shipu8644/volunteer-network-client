@@ -14,7 +14,6 @@ const Services = () => {
     }, [])
     return (
         <div className="  container pt-5 ">
-            {/* <h1 className="pt-5 ">{services.length} Services</h1> */}
             <Row xs={1} md={3} lg={4} className='gy-4'>
                 {services.map(service => <Service
                     key={service._id}

@@ -24,12 +24,19 @@ const Events = () => {
     return (
         <div className="pt-5 mt-5">
             <h2 className='text-primary'> Events You have registered yet are showing below:</h2>
-            <Row xs={1} md={3} lg={3} className='gy-4'>
-                {matchevents.map(event => <Event
-                    key={event._id}
-                    event={event}
-                ></Event>)}
-            </Row>
+            {matchevents.length ?
+                <Row xs={1} md={3} lg={3} className='gy-4'>
+                    {matchevents.map(event => <Event
+                        key={event._id}
+                        event={event}
+                    ></Event>)}
+                </Row>
+                :
+                <h5 className="text-danger mt-5 pt-5">Opps!! You have not
+                    <br />
+
+                    registered single services yet </h5>
+            }
 
         </div>
     );

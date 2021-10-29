@@ -8,6 +8,9 @@ const AdminList = (props) => {
     const { name, email, date, serviceName, status, _id } = props.event;
 
 
+
+
+
     return (
         <div className='d-flex bg-white p-2'>
 
@@ -23,7 +26,8 @@ const AdminList = (props) => {
 
             <Col lg={2} style={{ cursor: 'pointer' }}>
                 {status}
-            </Col> :
+            </Col>
+
 
             <button onClick={() => props.manageStatus(_id)}>Approved status</button>
 

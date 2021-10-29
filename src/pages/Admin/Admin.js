@@ -5,13 +5,12 @@ import AdminList from './AdminList';
 import { useHistory } from 'react-router';
 const Admin = () => {
     const [events, setEvents] = useState([]);
-    const history = useHistory;
-
+    const [stat, setStat] = useState(false);
     useEffect(() => {
         fetch('http://localhost:5000/events')
             .then(res => res.json())
             .then(data => setEvents(data))
-    }, [])
+    }, [stat])
 
     const deleteEvent = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
@@ -29,8 +28,8 @@ const Admin = () => {
         }
     }
 
-    const manageStatus = id => {
-        console.log(id);
+    const manageStatus = (id) => {
+        setStat(!stat);
         fetch(`http://localhost:5000/events/${id}`, {
             method: 'PUT',
             headers: {
@@ -46,11 +45,10 @@ const Admin = () => {
                 }
                 else {
                     alert('Already approved');
-                    const remainingEvents = events.find(event => event._id === id);
-                    setEvents(remainingEvents.status);
                 }
             })
     }
+
 
     return (
         <div className="mt-5 pt-5">
