@@ -5,7 +5,7 @@ import AdminList from './AdminList';
 import { useHistory } from 'react-router';
 const Admin = () => {
     const [events, setEvents] = useState([]);
-    const [stat, setStat] = useState(false);
+    const [stat, setStat] = useState(true);
     const [show, setShow] = useState(true);
     const handleClose = () => setShow(false);
     const history = useHistory();
@@ -13,7 +13,7 @@ const Admin = () => {
         fetch('http://localhost:5000/events')
             .then(res => res.json())
             .then(data => setEvents(data))
-    }, [stat])
+    }, [stat, events])
 
     const deleteEvent = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
@@ -33,23 +33,24 @@ const Admin = () => {
 
     const manageStatus = (id) => {
         setStat(!stat);
-        fetch(`http://localhost:5000/events/${id}`, {
-            method: 'PUT',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify()
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    alert("Status approved");
-
-                }
-                else {
-                    alert('Already approved');
-                }
+        const yes = window.confirm("Do you want to approve the status?");
+        yes &&
+            fetch(`http://localhost:5000/events/${id}`, {
+                method: 'PUT',
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify()
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        alert("Status approved successfully");
+                    }
+                    else {
+                        alert('Already approved');
+                    }
+                })
     }
 
     const handleHomePage = () => {
