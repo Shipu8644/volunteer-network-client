@@ -9,7 +9,7 @@ const Event = ({ event, deleteEvent }) => {
     const [services, setServices] = useState([]);
     const [matchService, setMatchService] = useState({});
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://safe-savannah-97305.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

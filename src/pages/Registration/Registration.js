@@ -10,7 +10,7 @@ const Registration = () => {
     const [service, setService] = useState({});
     const history = useHistory();
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://safe-savannah-97305.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [id])
@@ -29,7 +29,7 @@ const Registration = () => {
     const onSubmit = data => {
         data.status = "pending";
         console.log(data);
-        fetch('http://localhost:5000/events', {
+        fetch('https://safe-savannah-97305.herokuapp.com/events', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json'
