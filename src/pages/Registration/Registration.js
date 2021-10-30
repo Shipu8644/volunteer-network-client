@@ -50,37 +50,32 @@ const Registration = () => {
     }
     return (
 
-        <div>
-            <h3 className="pt-5 mt-5 text-primary">Register as a Volunteer</h3>
-            <div className="d-flex justify-content-center  mt-5 pt-5 flex-lg-row flex-column" >
-
-                <div >
-                    <img className="img-fluid pe-5" style={{ width: "500px", height: '300px' }} src={service.img} alt="" />
-                    <p className='text-primary'> {service.name}</p>
+        <div className="container">
+            <h3 style={{ fontStyle: 'italic' }} className="pt-5 mt-5 text-primary ">Register as a Volunteer</h3>
+            <div className='row '>
+                <div className='col-lg-4 col-12 img-name'>
+                    <img className="img-fluid pt-4 ps-4 " style={{ width: "600px", height: '350px' }} src={service?.img} alt="" />
+                    <p className="text-primary fs-4">{service?.name}</p>
                 </div>
-                <div className=' add-service'>
-                    <br />
-                    <form className="ps-5" onSubmit={handleSubmit(onSubmit)} >
-                        <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
+                <div className="add-service col-lg-8 col-12">
+                    <form onSubmit={handleSubmit(onSubmit)} >
+                        <input  {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
                         <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
 
                         <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
 
-                        <textarea {...register("description")} placeholder="Description" />
+                        <textarea {...register("description")} placeholder="Description optional" />
 
                         <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
 
                         <input className='bg-primary text-white' type="submit" value="Registration" />
                     </form>
-
                 </div>
 
             </div>
 
         </div>
-
-
 
     );
 };

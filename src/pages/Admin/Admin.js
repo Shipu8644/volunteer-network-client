@@ -60,7 +60,7 @@ const Admin = () => {
 
     return (
         <div className="mt-5 pt-5">
-            <h3 className="text-primary mb-5">Volunteer Register list</h3>
+            <h3 style={{ fontStyle: 'oblique' }} className="text-primary mb-5">Volunteer Register list</h3>
             <Container>
                 <Row>
                     <Col xs={2}>
@@ -74,7 +74,7 @@ const Admin = () => {
                             <Col lg={2} className='p-2'> <strong> Registration date </strong></Col>
                             <Col lg={2} className='p-2'> <strong>Volunteer list </strong></Col>
                             <Col lg={1} className='p-2 '> <strong>Action </strong></Col>
-                            <Col lg={1} className='p-2 ps-0'> <strong>Status </strong></Col>
+                            <Col lg={1} className='p-2 '> <strong>Status </strong></Col>
                         </Row>
                         {events.length ? events.map(event => <AdminList
                             key={event._id}

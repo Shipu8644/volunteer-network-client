@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Button, Modal, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Event from '../Event/Event';
 
 const Events = () => {
     const { user } = useAuth();
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const history = useHistory();
 
     const [events, setEvents] = useState([]);
     const [matchevents, setMatchEvents] = useState([]);
@@ -35,6 +41,10 @@ const Events = () => {
         }
     }
 
+    const handleHomePage = () => {
+        history.push('/home')
+    }
+
 
     return (
         <div className="pt-5 mt-5">
@@ -48,10 +58,27 @@ const Events = () => {
                     ></Event>)}
                 </Row>
                 :
-                <h5 className="text-danger mt-5 pt-5">Opps!! You have not
-                    <br />
+                <h5 className="text-danger mt-5 pt-5">
+                    <p>Oops!! Unfortunately you have not registered yet.</p>
+                    <Button variant="primary" onClick={handleShow}>
+                        Know more
+                    </Button>
 
-                    registered single services yet </h5>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Registration detail</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>If you want to register in any service as a volunteer then go to home page by one click in the button(Home Page) below!</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button onClick={handleHomePage} variant="primary" >
+                                Home Page
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </h5>
             }
 
         </div>
