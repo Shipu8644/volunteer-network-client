@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
-const Event = ({ event }) => {
+const Event = ({ event, deleteEvent }) => {
     const { user } = useAuth();
 
-    const { name, date, serviceName, email, status } = event;
+    const { name, date, serviceName, email, status, _id } = event;
     const [services, setServices] = useState([]);
     const [matchService, setMatchService] = useState({});
     useEffect(() => {
@@ -30,6 +30,7 @@ const Event = ({ event }) => {
                     <h5>{serviceName}</h5>
                     <p>{date}</p>
                     <p>Status: {status}</p>
+                    <button onClick={() => deleteEvent(_id)} className='text-white bg-primary'>Cancel</button>
                 </Col>
             </div>
 

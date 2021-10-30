@@ -19,6 +19,21 @@ const Events = () => {
         setMatchEvents(events.filter(event => event.email === user?.email))
     }, [events])
 
+    const deleteEvent = (id) => {
+        const proceed = window.confirm('Are you sure to delete?');
+        if (proceed) {
+            fetch(`http://localhost:5000/events/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remainingEvents = events.filter(event => event._id !== id);
+                        setEvents(remainingEvents);
+                    }
+                })
+        }
+    }
 
 
     return (
@@ -29,6 +44,7 @@ const Events = () => {
                     {matchevents.map(event => <Event
                         key={event._id}
                         event={event}
+                        deleteEvent={deleteEvent}
                     ></Event>)}
                 </Row>
                 :

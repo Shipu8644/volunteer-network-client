@@ -47,22 +47,29 @@ const Registration = () => {
             })
     }
     return (
-        <div className='pt-5 mt-5 add-service'>
-            <h2>Register as a Volunteer </h2>
-            <br />
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
+        <div className="row " >
+            <div className="mt-5 pt-5 col-4">
+                <img style={{ width: "350px" }} src={service.img} alt="" />
+                <p className='text-primary'>Event: {service.name}</p>
+            </div>
+            <div className='pt-5 mt-5 add-service col-8'>
+                <h2>Register as a Volunteer </h2>
+                <br />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
-                <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
+                    <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
 
-                <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
+                    <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
 
-                <textarea {...register("description")} placeholder="Description" />
+                    <textarea {...register("description")} placeholder="Description" />
 
-                <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
+                    <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
 
-                <input className='bg-primary text-white' type="submit" value="Registration" />
-            </form>
+                    <input className='bg-primary text-white' type="submit" value="Registration" />
+                </form>
+
+            </div>
 
         </div>
 
