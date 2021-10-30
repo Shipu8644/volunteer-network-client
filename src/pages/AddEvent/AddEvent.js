@@ -7,7 +7,7 @@ const AddEvent = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('https://safe-savannah-97305.herokuapp.com/services', data)
+        axios.post('https://shrouded-refuge-84897.herokuapp.com/services', data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

@@ -9,7 +9,7 @@ const Event = ({ event, deleteEvent }) => {
     const [services, setServices] = useState([]);
     const [matchService, setMatchService] = useState({});
     useEffect(() => {
-        fetch('https://safe-savannah-97305.herokuapp.com/services')
+        fetch('https://shrouded-refuge-84897.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

@@ -10,7 +10,7 @@ const Admin = () => {
     const handleClose = () => setShow(false);
     const history = useHistory();
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('https://shrouded-refuge-84897.herokuapp.com/events')
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [stat, events])
@@ -18,7 +18,7 @@ const Admin = () => {
     const deleteEvent = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/events/${id}`, {
+            fetch(`https://shrouded-refuge-84897.herokuapp.com/events/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -35,7 +35,7 @@ const Admin = () => {
         setStat(!stat);
         const yes = window.confirm("Do you want to approve the status?");
         yes &&
-            fetch(`http://localhost:5000/events/${id}`, {
+            fetch(`https://shrouded-refuge-84897.herokuapp.com/events/${id}`, {
                 method: 'PUT',
                 headers: {
                     "content-type": "application/json"

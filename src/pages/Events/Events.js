@@ -16,7 +16,7 @@ const Events = () => {
     const [matchevents, setMatchEvents] = useState([]);
 
     useEffect(() => {
-        fetch('https://safe-savannah-97305.herokuapp.com/events')
+        fetch('https://shrouded-refuge-84897.herokuapp.com/events')
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [])
@@ -28,7 +28,7 @@ const Events = () => {
     const deleteEvent = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            fetch(`https://safe-savannah-97305.herokuapp.com/events/${id}`, {
+            fetch(`https://shrouded-refuge-84897.herokuapp.com/events/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
