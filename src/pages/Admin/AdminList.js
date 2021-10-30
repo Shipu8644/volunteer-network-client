@@ -18,12 +18,12 @@ const AdminList = (props) => {
             <Col lg={1}
                 onClick={() => props.deleteEvent(_id)}
             >
-                <img style={{ cursor: "pointer", width: '25px' }} className="bg-danger " src={deleteLogo} alt="" />
+                <img style={{ cursor: "pointer", width: '25px' }} className="bg-danger " src={deleteLogo} title="delete" alt="" />
             </Col>
 
             <Col lg={3} style={{ cursor: 'pointer' }}>
                 <span className='me-3 text-danger'>{status}</span>
-                <button className='ms-5 bg-primary text-white rounded' onClick={() => props.manageStatus(_id)}>Approved </button>
+                <button className='ms-4 bg-primary text-white rounded' onClick={() => props.manageStatus(_id)}>Approved </button>
 
             </Col>
 

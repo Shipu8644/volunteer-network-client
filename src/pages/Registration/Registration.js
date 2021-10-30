@@ -5,7 +5,6 @@ import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 const Registration = () => {
     const { id } = useParams();
-
     const { user } = useAuth();
 
     const [service, setService] = useState({});
@@ -41,37 +40,46 @@ const Registration = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert("Registration Successfull");
-
+                    data = {};
+                    const yes = window.confirm("Registration successful! Do you want to see all the events you have registered? ")
+                    yes &&
+                        history.push('/events')
+                    reset();
                 }
             })
     }
     return (
-        <div className="row " >
-            <div className="mt-5 pt-5 col-6">
-                <img className="img-fluid" style={{ width: "350px" }} src={service.img} alt="" />
-                <p className='text-primary'>Event: {service.name}</p>
-            </div>
-            <div className='pt-5 mt-5 add-service col-6'>
-                <h2>Register as a Volunteer </h2>
-                <br />
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
-                    <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
+        <div>
+            <h3 className="pt-5 mt-5 text-primary">Register as a Volunteer</h3>
+            <div className="d-flex justify-content-center  mt-5 pt-5 flex-lg-row flex-column" >
 
-                    <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
+                <div >
+                    <img className="img-fluid pe-5" style={{ width: "500px", height: '300px' }} src={service.img} alt="" />
+                    <p className='text-primary'> {service.name}</p>
+                </div>
+                <div className=' add-service'>
+                    <br />
+                    <form className="ps-5" onSubmit={handleSubmit(onSubmit)} >
+                        <input {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
-                    <textarea {...register("description")} placeholder="Description" />
+                        <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
 
-                    <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
+                        <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
 
-                    <input className='bg-primary text-white' type="submit" value="Registration" />
-                </form>
+                        <textarea {...register("description")} placeholder="Description" />
+
+                        <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
+
+                        <input className='bg-primary text-white' type="submit" value="Registration" />
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
+
 
 
     );

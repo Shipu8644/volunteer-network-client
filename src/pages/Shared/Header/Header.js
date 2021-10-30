@@ -23,7 +23,7 @@ const Header = () => {
                             </Nav.Link> :
                                 <Nav.Link onClick={logout} className="ms-4"
                                     to='login' as={Link}
-                                >LogOut <span className="text-danger">Sign in as:{user?.displayName}</span>
+                                >Logout <span className="text-danger">Sign in as:{user?.displayName}</span>
                                 </Nav.Link>
                             }
                             <Nav.Link className="ms-4 bg-primary text-white rounded" as={Link} to='/register'   >Register</Nav.Link>

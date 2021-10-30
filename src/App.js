@@ -39,7 +39,7 @@ function App() {
             <PrivateRoute path='/admin'>
               <Admin></Admin>
             </PrivateRoute>
-            <PrivateRoute path='/addevent'>
+            <PrivateRoute path='/addEvent'>
               <AddEvent></AddEvent>
             </PrivateRoute>
           </Switch>
