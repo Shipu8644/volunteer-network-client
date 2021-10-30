@@ -60,13 +60,13 @@ const Admin = () => {
                         <NavLink to='/addEvent' style={{ cursor: 'pointer', textDecoration: 'none' }}> <p >Add event</p></NavLink>
                     </Col>
                     <Col xs={10} lg={10} className="bg-light pb-3 rounded ">
-                        <Row lg={6}>
-                            <Col className='p-2'> <strong > Name </strong></Col>
-                            <Col className='p-2'> <strong> Email id </strong></Col>
-                            <Col className='p-2'> <strong> Registration date </strong></Col>
-                            <Col className='p-2'> <strong>Volunteer list </strong></Col>
-                            <Col className='p-2'> <strong>Action </strong></Col>
-                            <Col className='p-2'> <strong>Status </strong></Col>
+                        <Row >
+                            <Col lg={2} className='p-2'> <strong > Name </strong></Col>
+                            <Col lg={2} className='p-2'> <strong> Email id </strong></Col>
+                            <Col lg={2} className='p-2'> <strong> Registration date </strong></Col>
+                            <Col lg={2} className='p-2'> <strong>Volunteer list </strong></Col>
+                            <Col lg={1} className='p-2 '> <strong>Action </strong></Col>
+                            <Col lg={1} className='p-2 ps-0'> <strong>Status </strong></Col>
                         </Row>
                         {events.map(event => <AdminList
                             key={event._id}

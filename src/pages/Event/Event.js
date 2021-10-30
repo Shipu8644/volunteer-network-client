@@ -30,7 +30,7 @@ const Event = ({ event, deleteEvent }) => {
                     <h5>{serviceName}</h5>
                     <p>{date}</p>
                     <p>Status: {status}</p>
-                    <button onClick={() => deleteEvent(_id)} className='text-white bg-primary'>Cancel</button>
+                    <button onClick={() => deleteEvent(_id)} className='text-white bg-primary rounded'>Cancel</button>
                 </Col>
             </div>
 

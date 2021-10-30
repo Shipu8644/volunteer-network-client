@@ -41,18 +41,18 @@ const Registration = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert("Registration successfull");
+                    alert("Registration Successfull");
 
                 }
             })
     }
     return (
         <div className="row " >
-            <div className="mt-5 pt-5 col-4">
-                <img style={{ width: "350px" }} src={service.img} alt="" />
+            <div className="mt-5 pt-5 col-6">
+                <img className="img-fluid" style={{ width: "350px" }} src={service.img} alt="" />
                 <p className='text-primary'>Event: {service.name}</p>
             </div>
-            <div className='pt-5 mt-5 add-service col-8'>
+            <div className='pt-5 mt-5 add-service col-6'>
                 <h2>Register as a Volunteer </h2>
                 <br />
                 <form onSubmit={handleSubmit(onSubmit)}>
