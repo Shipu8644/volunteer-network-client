@@ -15,7 +15,7 @@ const Header = () => {
                     <Navbar.Collapse id="navbarScroll" className=" justify-content-end" >
                         <Nav >
                             <Nav.Link as={Link} to='/home'>Home</Nav.Link>
-                            <Nav.Link className="ms-4" as={Link} to='notFound'>Donation</Nav.Link>
+                            <Nav.Link className="ms-4" as={Link} to='/donation'>Donation</Nav.Link>
                             <Nav.Link className="ms-4" as={Link} to='/events'>My Events</Nav.Link>
 
                             {!user?.email ? <Nav.Link className="ms-4" as={Link}
