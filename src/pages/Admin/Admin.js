@@ -71,7 +71,7 @@ const Admin = () => {
                     </Col>
                     <Col xs={10} lg={10} className="bg-light pb-3 rounded media">
 
-                        {events.length ? <div class="table-responsive"> <table class="table ">
+                        {events.length ? <div className="table-responsive"> <table className="table ">
                             <thead>
                                 <tr>
                                     <th scope="col">Name</th>

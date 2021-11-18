@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
 import deleteLogo from '../../delete.png'
 
 const AdminList = ({ event, deleteEvent, manageStatus }) => {

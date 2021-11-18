@@ -12,6 +12,7 @@ import Events from './pages/Events/Events';
 import Admin from './pages/Admin/Admin';
 import AddEvent from './pages/AddEvent/AddEvent';
 import Footer from './pages/Shared/Footer/Footer';
+import NotFound from './pages/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
@@ -43,6 +44,9 @@ function App() {
             <PrivateRoute path='/addEvent'>
               <AddEvent></AddEvent>
             </PrivateRoute>
+            <Route path='*'>
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </BrowserRouter>
       </Authprovider>
