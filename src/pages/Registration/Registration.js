@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './Registration.css';
+
+
 const Registration = () => {
     const { id } = useParams();
     const { user } = useAuth();
@@ -26,8 +28,13 @@ const Registration = () => {
     const { register, handleSubmit, reset } = useForm({
         defaultValues: preloadValues
     });
+
     const onSubmit = data => {
         data.status = "pending";
+        data.serviceName = service.name;
+        data.name = user.displayName;
+        data.email = user.email;
+
         console.log(data);
         fetch('https://shrouded-refuge-84897.herokuapp.com/events', {
             method: 'POST',
@@ -61,13 +68,13 @@ const Registration = () => {
                     <form onSubmit={handleSubmit(onSubmit)} >
                         <input  {...register("name", { required: true, maxLength: 100 })} placeholder="Name" />
 
-                        <input {...register("email", { required: true, maxLength: 30 })} placeholder="email" />
+                        <input {...register("email", { required: true, maxLength: 50 })} placeholder="email" />
 
                         <input {...register("date", { required: true, maxLength: 20 })} placeholder="date" />
 
                         <textarea {...register("description")} placeholder="Description optional" />
 
-                        <input {...register("serviceName", { required: true, maxLength: 40 })} placeholder="Service name" value={service.name || ''} />
+                        <input {...register("serviceName", { required: true, maxLength: 40, disabled: true })} placeholder="Service name" value={service.name || ''} />
 
                         <input className='bg-primary text-white' type="submit" value="Registration" />
                     </form>

@@ -3,6 +3,7 @@ import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import AdminList from './AdminList';
 import { useHistory } from 'react-router';
+import './Admin.css'
 const Admin = () => {
     const [events, setEvents] = useState([]);
     const [stat, setStat] = useState(true);
@@ -64,25 +65,36 @@ const Admin = () => {
             <h3 style={{ fontStyle: 'oblique' }} className="text-primary mb-5">Volunteer Register list</h3>
             <Container>
                 <Row>
-                    <Col xs={2}>
+                    <Col xs={12} lg={2}>
                         <NavLink to='/admin'><p>Volunteer Register List</p></NavLink>
                         <NavLink to='/addEvent' style={{ cursor: 'pointer', textDecoration: 'none' }}> <p >Add event</p></NavLink>
                     </Col>
-                    <Col xs={10} lg={10} className="bg-light pb-3 rounded ">
-                        <Row >
-                            <Col lg={2} className='p-2'> <strong > Name </strong></Col>
-                            <Col lg={2} className='p-2'> <strong> Email id </strong></Col>
-                            <Col lg={2} className='p-2'> <strong> Registration date </strong></Col>
-                            <Col lg={2} className='p-2'> <strong>Volunteer list </strong></Col>
-                            <Col lg={1} className='p-2 '> <strong>Action </strong></Col>
-                            <Col lg={1} className='p-2 '> <strong>Status </strong></Col>
-                        </Row>
-                        {events.length ? events.map(event => <AdminList
-                            key={event._id}
-                            event={event}
-                            deleteEvent={deleteEvent}
-                            manageStatus={manageStatus}
-                        ></AdminList>) :
+                    <Col xs={10} lg={10} className="bg-light pb-3 rounded">
+
+                        {events.length ? <div class="table-responsive"> <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Volunteer List</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Approved Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody> {events.map(event => <AdminList
+                                key={event._id}
+                                event={event}
+                                deleteEvent={deleteEvent}
+                                manageStatus={manageStatus}
+                            ></AdminList>)}
+                            </tbody>
+
+                        </table>
+                        </div>
+                            :
 
                             <Modal
                                 show={show}
@@ -105,8 +117,8 @@ const Admin = () => {
                             </Modal>
 
                         }
-                    </Col>
 
+                    </Col>
                 </Row>
             </Container>
 

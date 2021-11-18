@@ -7,28 +7,20 @@ const AdminList = ({ event, deleteEvent, manageStatus }) => {
     const { name, email, date, serviceName, status, _id } = event;
 
     return (
-        <div className='d-flex bg-white p-2'>
+        <tr className="bg-white">
+            <td>{name}</td>
 
-            <Col lg={2}>{name.slice(0, 15)}</Col>
-            <Col lg={2}>{email}</Col>
+            <td>{email}</td>
 
-            <Col lg={2}>{date}</Col>
-            <Col lg={2}>{serviceName}</Col>
+            <td>{date}</td>
 
-            <Col lg={1}
-                onClick={() => deleteEvent(_id)}
-            >
-                <img style={{ cursor: "pointer", width: '25px' }} className="bg-danger " src={deleteLogo} title="delete" alt="" />
-            </Col>
+            <td>{serviceName}</td>
 
-            <Col lg={3} style={{ cursor: 'pointer' }}>
-                <span className='me-3 text-danger'>{status}</span>
-                <button className='ms-4 bg-primary text-white rounded' onClick={() => manageStatus(_id)}>Approved </button>
+            <td onClick={() => deleteEvent(_id)}>  <img style={{ cursor: "pointer", width: '25px' }} className="bg-danger " src={deleteLogo} title="delete" alt="" /></td>
 
-            </Col>
-
-
-        </div>
+            <td>{status}</td>
+            <td> <button className='ms-4 bg-primary text-white rounded' onClick={() => manageStatus(_id)}>Approved </button></td>
+        </tr>
     );
 };
 

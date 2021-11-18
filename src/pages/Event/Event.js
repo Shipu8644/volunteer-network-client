@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import useAuth from '../../hooks/useAuth';
 
 const Event = ({ event, deleteEvent }) => {
-    const { user } = useAuth();
 
-    const { name, date, serviceName, email, status, _id } = event;
+
+    const { date, serviceName, status, _id } = event;
     const [services, setServices] = useState([]);
     const [matchService, setMatchService] = useState({});
     useEffect(() => {
