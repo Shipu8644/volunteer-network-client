@@ -4,11 +4,15 @@ import useAuth from '../../hooks/useAuth';
 import logo from '../../logo.png';
 
 const Login = () => {
-    const { googleSignIn } = useAuth();
+    const { googleSignIn, user } = useAuth();
 
     const location = useLocation();
     const redirect_url = location.state?.from || 'home';
     const history = useHistory();
+
+    if (user.email) {
+        history.push('/')
+    }
 
     const manageRidirectory = () => {
         googleSignIn()
