@@ -69,7 +69,7 @@ const Admin = () => {
                         <NavLink to='/admin'><p>Volunteer Register List</p></NavLink>
                         <NavLink to='/addEvent' style={{ cursor: 'pointer', textDecoration: 'none' }}> <p >Add event</p></NavLink>
                     </Col>
-                    <Col xs={10} lg={10} className="bg-light pb-3 rounded">
+                    <Col xs={10} lg={10} className="bg-light pb-3 rounded media">
 
                         {events.length ? <div class="table-responsive"> <table class="table ">
                             <thead>

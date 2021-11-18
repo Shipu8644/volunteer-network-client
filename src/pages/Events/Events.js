@@ -3,6 +3,7 @@ import { Button, Modal, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Event from '../Event/Event';
+import Footer from '../Shared/Footer/Footer';
 
 const Events = () => {
     const { user } = useAuth();
@@ -80,7 +81,7 @@ const Events = () => {
                     </Modal>
                 </h5>
             }
-
+            <Footer></Footer>
         </div>
     );
 };

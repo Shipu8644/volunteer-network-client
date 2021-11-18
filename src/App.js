@@ -11,6 +11,7 @@ import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Events from './pages/Events/Events';
 import Admin from './pages/Admin/Admin';
 import AddEvent from './pages/AddEvent/AddEvent';
+import Footer from './pages/Shared/Footer/Footer';
 function App() {
   return (
     <div className="App">

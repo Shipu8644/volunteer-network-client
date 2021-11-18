@@ -26,7 +26,7 @@ const Header = () => {
                                 >Logout <span className="text-danger">Sign in as:{user?.displayName}</span>
                                 </Nav.Link>
                             }
-                            <Nav.Link className="ms-4 bg-primary text-white rounded" as={Link} to='/register'   >Register</Nav.Link>
+                            {/* <Nav.Link className="ms-4 bg-primary text-white rounded" as={Link} to='/register'   >Register</Nav.Link> */}
                             <Nav.Link className="ms-4 bg-dark text-white rounded" as={Link} to='/admin'  >Admin</Nav.Link>
 
                         </Nav>
