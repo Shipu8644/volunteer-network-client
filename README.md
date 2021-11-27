@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# SquaDrone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site link of [Volunteer Network](https://volunteer-network-a7e77.web.app/home).
 
-## Available Scripts
+## Description
+ This is a Social events based
+ Website named Volunteer Network.
 
-In the project directory, you can run:
+ Users and visitors can see all the social events and get their desirable events that they want to register and contribute for society. There are various events are available that most of the needy people need. If users find any events that he/she want to register, they can see the whole details of that event before registration. Volunteer Network has 2 modes for the visitors: Guest mode, Users/Volunteers mode.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Users/volunteers and Visitors can see all the events  we have.
+* Only volunteers can check the details of any events, not the guests.
+* If Any guests want to be a volunteer then he/she need to register first.
+* After registration users can login with Google login system.
+* User can see their registered events from the my events page. 
+* If any volunteers lose his/her interest on any events, they can cancel this specific registration any time.
+* The status is also available for the users/volunteers in my events page. This could be pending or approved.
+* Admin can add new event easily by given necessary data. After adding new event will be displayed on the home page.
+* Admin can modify volunteer register list by changing the status from pending to approved and removing the volunteers from the website.
+* Front-end and Back-end Development using
+Reactjs, Nodejs, MongoDb and Firebase authentication system used for registration and login.
